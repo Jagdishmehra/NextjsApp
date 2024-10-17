@@ -2,12 +2,10 @@ import mongoose from "mongoose";
 
 export const connectdb = async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://jagdishsinghmehra25:20b4WzCVrrVdhVUq@cluster0.pslq1.mongodb.net/",
-      {
-        dbName: "next_db",
-      }
-    );
+    const mongo = await mongoose.connect(process.env.MONGO_DB_CONNECT, {
+      dbName: "next_db",
+    });
+    console.log(mongo);
   } catch (err) {
     console.log("err: " + err.message);
   }

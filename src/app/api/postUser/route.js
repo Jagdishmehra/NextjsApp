@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export const POST = async (request, response) => {
   try {
-    await connectdb();
+    connectdb();
     console.log("db connected sucessfully");
     return NextResponse.json({
       message: "data posted succesfully",
